@@ -1,4 +1,4 @@
-# QA automation challange
+# QA automation challenge
 
 This mini-project contains the following files:
 
@@ -14,14 +14,14 @@ This mini-project contains the following files:
 
 - **example.p4d**
   
-  - Contains the input data structured in an XML fashion
+  - Contains the input data structured in an XML format
 
 
 - **output.txt**
   
   - Is the file produced after running the program and contains the requested information: number of GCP points, the area covered by them and for each of the GCPs in how many images it can be seen.
 ## Prerequisites
-- Python version equal or grater than 3.8
+- Python version equal or greater than 3.8
 
 
 ## Installation
@@ -44,4 +44,4 @@ python my_program.py example.p4d output.txt
 ```
 
 ## Assumptions
-- Input data is structured in an XML fashion
+- Input data is structured in an XML format

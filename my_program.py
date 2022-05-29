@@ -23,6 +23,7 @@ class GCP:
 
     def __open_and_parse_input_file(self):
         """Parse XML input document into element tree and return its root element"""
+        print('Parsing the XML input file...')
         return ET.parse(self.input_file).getroot()
 
     def get_xml_info(self, tag: str, prop: str) -> list:
@@ -52,9 +53,9 @@ class GCP:
     @staticmethod
     def compute_area(data: list) -> float:
         """Compute a crude approximation of the area covered by the GCPs"""
+        print('Computing area ...')
         xs = [x[0] for x in data]
         ys = [x[1] for x in data]
-        min(xs), max(xs), min(ys), max(ys)
         rectangle_coords = [
             (min(xs), min(ys)),
             (max(xs), min(ys)),
@@ -73,11 +74,13 @@ class GCP:
              - the area covered by them
              - for each of the GCPs in how many images it can be seen
         """
+        print(f'Writing the data to the {self.output_file}...')
         with open(self.output_file, "w") as f:
             f.write(f"{str(len(gcps))}\n")
             f.write(f"{area}\n")
             for id in gcps:
                 f.write(f"{id}: {gcp_in_images.count(id)}\n")
+
 
 
 def main():
@@ -86,6 +89,7 @@ def main():
     area = gcp_object.compute_area(gcp_object.get_coordinates())
     gcps_from_img = gcp_object.get_gcp_from_images()
     gcp_object.create_and_fill_output(gcp_ids, area, gcps_from_img)
+    print('Done!')
 
 
 if __name__ == "__main__":
